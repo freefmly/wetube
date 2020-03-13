@@ -1,4 +1,7 @@
 extends layouts/main
 
 block content
-    p Edit Profile
+    .form__container
+        form(action=routes.editProfile, method="POST")
+            label(for="avatar") 아바타
+            input(type="file", id="avatar", name="avatar")
