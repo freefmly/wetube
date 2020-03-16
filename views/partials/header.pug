@@ -7,7 +7,15 @@ header.header
             input(type="text", placeholder="Search by term...", name="term")
     .header__column
         ul
-            li
-                a(href=routes.join) 가입하기
-            li
-                a(href=routes.login) 로그인
+            if !user.isAuthenticated
+                li
+                    a(href=routes.join) 가입하기
+                li
+                    a(href=routes.login) 로그인
+            else
+                li
+                    a(href=routes.upload) 영상 업로드
+                li
+                    a(href=routes.userDetail(user.id)) 프로필
+                li
+                    a(href=routes.logout) 로그아웃
